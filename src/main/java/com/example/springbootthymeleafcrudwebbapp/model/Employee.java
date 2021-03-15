@@ -1,5 +1,7 @@
 package com.example.springbootthymeleafcrudwebbapp.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -18,8 +20,10 @@ public class Employee {
     @Column(name = "email")
     private String email;
     @Column(name = "hire_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date hireDate;
     @Column(name = "termination_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date terminationDate = null;
     @Column(name = "department")
     private String department;
