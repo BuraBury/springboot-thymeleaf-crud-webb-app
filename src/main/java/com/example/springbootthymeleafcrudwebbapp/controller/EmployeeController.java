@@ -25,6 +25,12 @@ public class EmployeeController {
         model.addAttribute("listEmployees", employeeService.getAllEmployees());
         return "index";
     }
+    @GetMapping("/employee/{id}")
+    public String viewEmployeeById(@PathVariable(value = "id") long id, Model model) {
+        Employee employee = employeeService.getEmployeeById(id);
+        model.addAttribute("employee", employee);
+        return "employee";
+    }
 
     @GetMapping("/showNewEmployeeForm")
     public String showNewEmployeeForm(Model model) {
