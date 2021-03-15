@@ -17,13 +17,13 @@ public class Employee {
     private String lastName;
     @Column(name = "email")
     private String email;
-    @Column (name="hire_date")
+    @Column(name = "hire_date")
     private Date hireDate;
-    @Column (name="termination_date")
+    @Column(name = "termination_date")
     private Date terminationDate = null;
-    @Column (name="department")
+    @Column(name = "department")
     private String department;
-    @Column (name="position")
+    @Column(name = "position")
     private String position;
 
     public Date getHireDate() {
