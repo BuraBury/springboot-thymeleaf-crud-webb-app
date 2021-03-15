@@ -11,5 +11,7 @@ public interface EmployeeService {
 
     Employee getEmployeeById(long id);
 
+    List<Employee> findByKeyword(String keyword);
+
     void deleteEmployeeById(long id);
 }

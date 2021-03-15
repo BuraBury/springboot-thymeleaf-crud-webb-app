@@ -5,6 +5,7 @@ import com.example.springbootthymeleafcrudwebbapp.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -22,10 +23,14 @@ public class EmployeeController {
         model.addAttribute("listEmployees", employeeService.getAllEmployees());
         return "index";
     }
-    @GetMapping("/employee/{id}")
-    public String viewEmployeeById(@PathVariable(value = "id") long id, Model model) {
-        Employee employee = employeeService.getEmployeeById(id);
-        model.addAttribute("employee", employee);
+
+    @GetMapping("/employee")
+    public String viewEmployeeById(ModelMap modelMap, String keyword) {
+        if (keyword != null) {
+            modelMap.addAttribute("listEmployees", employeeService.findByKeyword(keyword));
+        } else {
+          modelMap.addAttribute("listEmployees", employeeService.getAllEmployees());
+        }
         return "employee";
     }
 
