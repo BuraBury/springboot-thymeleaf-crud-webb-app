@@ -3,6 +3,7 @@ package com.example.springbootthymeleafcrudwebbapp.model;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.util.Date;
 
 @Entity
@@ -14,20 +15,33 @@ public class Employee {
     private long id;
 
     @Column(name = "first_name")
+    @NotBlank(message = "Name is mandatory")
     private String firstName;
+
     @Column(name = "last_name")
+    @NotBlank(message = "Last name is mandatory")
     private String lastName;
+
     @Column(name = "email")
+    @Email(message = "Email should be valid")
     private String email;
+
     @Column(name = "hire_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @PastOrPresent
     private Date hireDate;
+
     @Column(name = "termination_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @FutureOrPresent
     private Date terminationDate = null;
+
     @Column(name = "department")
+    @NotBlank(message = "Department name is mandatory")
     private String department;
+
     @Column(name = "position")
+    @NotBlank(message = "Position name is mandatory")
     private String position;
 
     public Date getHireDate() {
@@ -41,7 +55,6 @@ public class Employee {
     public Date getTerminationDate() {
         return terminationDate;
     }
-
     public void setTerminationDate(Date terminationDate) {
         this.terminationDate = terminationDate;
     }
