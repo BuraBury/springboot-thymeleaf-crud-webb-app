@@ -44,7 +44,7 @@
             <td th:text="${employee.terminationDate}"></td>
             <td th:text="${employee.department}"></td>
             <td th:text="${employee.position}"></td>
-            <td><a th:href="@{/showFormForUpdate/{id}(id=${employee.id})}" class="btn btn-primary" style="margin: 5px">Update</a>
+            <td><a th:href="@{/showFormForUpdate/{id}(id=${employee.id})}" class="btn btn-info" style="margin: 5px">Update</a>
                 <a th:href="@{/deleteEmployee/{id}(id=${employee.id})}" class="btn btn-danger" style="margin: 5px">Delete</a>
             </td>
         </tr>
