@@ -15,11 +15,11 @@ public class Employee {
     private long id;
 
     @Column(name = "first_name")
-    @Size(min=2, max=35, message = "Name must be 3-35 characters long.")
+    @Size(min = 2, max = 35, message = "Name must be 2-35 characters long.")
     private String firstName;
 
     @Column(name = "last_name")
-    @Size(min=2, max=35, message = "Last name must be 3-35 characters long.")
+    @Size(min = 2, max = 35, message = "Last name must be 2-35 characters long.")
     private String lastName;
 
     @Column(name = "email")
@@ -55,6 +55,7 @@ public class Employee {
     public Date getTerminationDate() {
         return terminationDate;
     }
+
     public void setTerminationDate(Date terminationDate) {
         this.terminationDate = terminationDate;
     }
