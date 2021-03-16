@@ -15,25 +15,25 @@ public class Employee {
     private long id;
 
     @Column(name = "first_name")
-    @NotBlank(message = "Name is mandatory")
+    @Size(min=2, max=35, message = "Name must be 3-35 characters long.")
     private String firstName;
 
     @Column(name = "last_name")
-    @NotBlank(message = "Last name is mandatory")
+    @Size(min=2, max=35, message = "Last name must be 3-35 characters long.")
     private String lastName;
 
     @Column(name = "email")
-    @Email(message = "Email should be valid")
+    @Email(message = "Enter valid email address")
     private String email;
 
     @Column(name = "hire_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @PastOrPresent
+    @PastOrPresent(message = "Hire date cannot be in the future.")
     private Date hireDate;
 
     @Column(name = "termination_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @FutureOrPresent
+    @FutureOrPresent(message = "Termination date cannot be in the past.")
     private Date terminationDate = null;
 
     @Column(name = "department")
