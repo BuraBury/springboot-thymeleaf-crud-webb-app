@@ -32,6 +32,7 @@
                    placeholder="Employee Email" class="form-control mb-4">
             <p style="margin-left: 5px;">hire date:</p>
             <input type="date" th:field="*{hireDate}" class="form-control mb-4">
+            <p style="margin-left: 5px;">department:</p>
             <div class="form-group">
                 <select class="form-control" th:field="*{department}">
                     <option value="IT">IT</option>
@@ -41,7 +42,7 @@
                     <option value="Help Desk">Help Desk</option>
                 </select>
             </div>
-
+            <p style="margin-left: 5px;">position:</p>
             <div class="form-group">
                 <select class="form-control" th:field="*{position}">
                     <option value="Junior Developer">Junior Developer</option>
