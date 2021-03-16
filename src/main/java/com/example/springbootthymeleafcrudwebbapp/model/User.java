@@ -1,9 +1,8 @@
 package com.example.springbootthymeleafcrudwebbapp.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 public class User {
@@ -12,9 +11,20 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column
+    @NotEmpty
+    @Size(min=5, max=20, message = "User name must be 5-20 characters long.")
     private String username;
+
+    @Column
+    @NotEmpty
+    @Size(min = 5, max = 30, message = "Password must be 5-30 characters long.")
     private String password;
+
+    @Column
     private String role;
+
+    @Column
     private int enabled;
 
     public long getId() {
