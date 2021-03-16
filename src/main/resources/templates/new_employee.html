@@ -25,11 +25,11 @@
 
         <form th:action="@{/saveEmployee}" th:object="${employee}" method="post">
             <input type="text" th:field="*{firstName}"
-                   placeholder="Employee First Name" class="form-control mb-4">
+                   placeholder="First Name" class="form-control mb-4">
             <input type="text" th:field="*{lastName}"
-                   placeholder="Employee Last Name" class="form-control mb-4">
+                   placeholder="Last Name" class="form-control mb-4">
             <input type="text" th:field="*{email}"
-                   placeholder="Employee Email" class="form-control mb-4">
+                   placeholder="Email" class="form-control mb-4">
             <p style="margin-left: 5px;">hire date:</p>
             <input type="date" th:field="*{hireDate}" class="form-control mb-4">
             <p style="margin-left: 5px;">department:</p>
