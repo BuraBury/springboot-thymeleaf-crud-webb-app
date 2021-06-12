@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -22,20 +23,22 @@ public class DepartmentController {
     @GetMapping("/showNewDepartmentForm")
     public String showAllDepartments(Model model) {
         model.addAttribute("listDepartments", departmentService.getAllDepartments());
+        Department department = new Department();
+        model.addAttribute("department", department);
         return "departments";
     }
 
-//    @GetMapping("/showNewDepartmentForm")
-//    public String showNewDepartmentForm(Model model) {
-//        Department department = new Department();
-//        model.addAttribute("department", department);
-//        return "new_department";
-//    }
 
     @PostMapping("/saveDepartment")
     public String saveDepartment(@ModelAttribute("department") Department department) {
         departmentService.saveDepartment(department);
-        return "redirect:/departments";
+        return "redirect:/";
+    }
+
+    @GetMapping("/deleteDepartment/{id}")
+    public String deletePosition(@PathVariable(value = "id") long id) {
+        this.departmentService.deleteDepartmentById(id);
+        return "redirect:/";
     }
 
 

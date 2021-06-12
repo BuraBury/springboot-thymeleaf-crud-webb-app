@@ -38,6 +38,7 @@ public class Employee {
 
     @Column(name = "department_id")
     @NotBlank(message = "Department name is mandatory")
+
     private String department;
 
     @Column(name = "position_id")
