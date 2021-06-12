@@ -22,8 +22,16 @@ public class Department {
         return id;
     }
 
-    @OneToMany(targetEntity = Employee.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "ed_fk", referencedColumnName = "id")
+    @ManyToOne(cascade = CascadeType.ALL, targetEntity = Employee.class)
+    @JoinColumn(name = "employee_id", referencedColumnName = "id")
+    private Employee employee;
+
+    @ManyToMany
+    @JoinTable(
+            name = "employee_department",
+            joinColumns = @JoinColumn(name = "department_id"),
+            inverseJoinColumns = @JoinColumn(name = "employee_id")
+    )
     private List<Employee> employees;
 
     public String getName() {
@@ -32,6 +40,10 @@ public class Department {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
     }
 
     @Override

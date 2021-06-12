@@ -25,9 +25,17 @@ public class Position {
     @Size(min = 2, max = 35, message = "Position name must be 2-35 characters long.")
     private String name;
 
-    @OneToMany(targetEntity = Employee.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "ep_fk", referencedColumnName = "id")
+    @ManyToMany
+    @JoinTable(
+            name = "employee_position",
+            joinColumns = @JoinColumn(name = "position_id"),
+            inverseJoinColumns = @JoinColumn(name = "employee_id")
+    )
     private List<Employee> employees;
+
+    @ManyToOne(cascade = CascadeType.ALL, targetEntity = Employee.class)
+    @JoinColumn(name = "employee_id", referencedColumnName = "id")
+    private Employee employee;
 
     public long getId() {
         return id;
@@ -40,6 +48,7 @@ public class Position {
     public void setName(String name) {
         this.name = name;
     }
+
     @Override
     public String toString() {
         return name;
