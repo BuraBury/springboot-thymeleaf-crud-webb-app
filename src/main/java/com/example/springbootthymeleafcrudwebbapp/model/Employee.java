@@ -5,7 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.util.Date;
-//
+
 @Entity
 @Table(name = "employees")
 public class Employee {
@@ -38,11 +38,11 @@ public class Employee {
 
     @Column(name = "department_id")
     @NotBlank(message = "Department name is mandatory")
-    private int department;
+    private String department;
 
     @Column(name = "position_id")
     @NotBlank(message = "Position name is mandatory")
-    private int position;
+    private String position;
 
     public Date getHireDate() {
         return hireDate;
@@ -60,19 +60,19 @@ public class Employee {
         this.terminationDate = terminationDate;
     }
 
-    public int getDepartment() {
+    public String getDepartment() {
         return department;
     }
 
-    public void setDepartment(int department) {
+    public void setDepartment(String department) {
         this.department = department;
     }
 
-    public int getPosition() {
+    public String getPosition() {
         return position;
     }
 
-    public void setPosition(int position) {
+    public void setPosition(String position) {
         this.position = position;
     }
 

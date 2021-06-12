@@ -9,14 +9,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class DepartmentServiceImpl implements DepartmentService{
+public class DepartmentServiceImpl implements DepartmentService {
 
-  private final DepartmentRepository departmentRepository;
+    private final DepartmentRepository departmentRepository;
 
-  @Autowired
+    @Autowired
     public DepartmentServiceImpl(DepartmentRepository departmentRepository) {
-      this.departmentRepository = departmentRepository;
-  }
+        this.departmentRepository = departmentRepository;
+    }
 
 
     @Override
@@ -26,14 +26,14 @@ public class DepartmentServiceImpl implements DepartmentService{
 
     @Override
     public void saveDepartment(Department department) {
-      departmentRepository.save(department);
+        departmentRepository.save(department);
     }
 
     @Override
     public Department getDepartmentById(long id) {
         Optional<Department> optionalDepartment = departmentRepository.findById(id);
         Department department = null;
-        if(optionalDepartment.isPresent()) {
+        if (optionalDepartment.isPresent()) {
             department = optionalDepartment.get();
         } else {
             throw new RuntimeException("Department not found for id: " + id);
@@ -48,6 +48,6 @@ public class DepartmentServiceImpl implements DepartmentService{
 
     @Override
     public void deleteDepartmentById(long id) {
-      this.departmentRepository.deleteById(id);
+        this.departmentRepository.deleteById(id);
     }
 }

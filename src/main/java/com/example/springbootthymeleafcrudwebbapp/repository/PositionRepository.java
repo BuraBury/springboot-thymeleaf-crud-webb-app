@@ -1,6 +1,5 @@
 package com.example.springbootthymeleafcrudwebbapp.repository;
 
-import com.example.springbootthymeleafcrudwebbapp.model.Department;
 import com.example.springbootthymeleafcrudwebbapp.model.Position;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

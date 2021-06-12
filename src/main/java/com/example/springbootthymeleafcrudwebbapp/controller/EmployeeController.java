@@ -29,7 +29,7 @@ public class EmployeeController {
         if (keyword != null) {
             modelMap.addAttribute("listEmployees", employeeService.findByKeyword(keyword));
         } else {
-          modelMap.addAttribute("listEmployees", employeeService.getAllEmployees());
+            modelMap.addAttribute("listEmployees", employeeService.getAllEmployees());
         }
         return "employee";
     }
