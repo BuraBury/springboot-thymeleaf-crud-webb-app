@@ -25,7 +25,7 @@ public class Position {
     @Size(min = 2, max = 35, message = "Position name must be 2-35 characters long.")
     private String name;
 
-    @ManyToMany
+    @OneToMany
     @JoinTable(
             name = "employee_position",
             joinColumns = @JoinColumn(name = "position_id"),

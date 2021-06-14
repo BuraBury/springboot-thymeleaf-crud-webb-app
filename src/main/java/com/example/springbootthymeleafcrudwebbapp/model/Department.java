@@ -26,7 +26,7 @@ public class Department {
     @JoinColumn(name = "employee_id", referencedColumnName = "id")
     private Employee employee;
 
-    @ManyToMany
+    @OneToMany
     @JoinTable(
             name = "employee_department",
             joinColumns = @JoinColumn(name = "department_id"),
